@@ -1,5 +1,14 @@
 import { Stack } from "expo-router";
-
-export default function RootLayout() {
-  return <Stack />;
-}
+import { StatusBar } from "react-native";
+const layout = () => {
+  return (
+    <>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="banner" />
+      </Stack>
+      <StatusBar />
+    </>
+  );
+};
+export default layout;
