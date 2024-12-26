@@ -7,7 +7,7 @@ const layout = () => {
         <Stack.Screen name="index" />
         <Stack.Screen name="banner" />
       </Stack>
-      <StatusBar />
+      <StatusBar hidden />
     </>
   );
 };
