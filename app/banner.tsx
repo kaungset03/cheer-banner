@@ -1,25 +1,41 @@
 import { useEffect } from 'react';
 import { Marquee } from '@animatereactnative/marquee';
 import { useLocalSearchParams } from 'expo-router';
-import { Text, View, StyleSheet, useWindowDimensions } from 'react-native';
+import { Text, View, StyleSheet, useWindowDimensions, ViewStyle } from 'react-native';
 import * as ScreenOrientation from "expo-screen-orientation";
+import useAppStore from '@/lib/zustand/store';
 
 
 const banner = () => {
+  const { fontSize, fontFamily, textColor, bgColor } = useAppStore((state) => state)
   const { text } = useLocalSearchParams()
   const width = useWindowDimensions().width;
+
+  const textStyles = {
+    fontSize,
+    fontFamily,
+    color: textColor,
+  }
+
+  const marqueeContainer: ViewStyle = {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: bgColor,
+  }
 
   useEffect(() => {
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     return () => {
-      ScreenOrientation.unlockAsync();
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
     };
   }, []);
 
   return (
     <View style={styles.container}>
-      <Marquee speed={1.5} spacing={width} style={styles.marqueeContainer}>
-        <Text style={styles.text}>
+      <Marquee speed={1.5} spacing={width} style={marqueeContainer}>
+        <Text style={textStyles}>
           {text}
         </Text>
       </Marquee>
@@ -34,15 +50,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  marqueeContainer: {
-    width: "100%",
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 64,
-    fontWeight: 'bold',
-  },
+
 });
 
