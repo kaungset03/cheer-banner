@@ -1,10 +1,16 @@
 import { create, StateCreator } from "zustand";
-import createConfigSlice, { type ConfigSlice } from "@/lib/zustand/configSlice";
+import createTextConfigSlice, {
+  type TextConfigSlice,
+} from "@/lib/zustand/textConfigSlice";
+import createAnimationConfigSlice, {
+  AnimationConfigSlice,
+} from "@/lib/zustand/animationConfigSlice";
 
-interface Store extends ConfigSlice {}
+interface Store extends TextConfigSlice, AnimationConfigSlice {}
 
 const initializer: StateCreator<Store, [], [], Store> = (...a) => ({
-  ...createConfigSlice(...a),
+  ...createTextConfigSlice(...a),
+  ...createAnimationConfigSlice(...a),
 });
 
 const useAppStore = create<Store>()(initializer);
