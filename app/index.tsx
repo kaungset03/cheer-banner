@@ -1,16 +1,17 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useState } from "react";
 import { router } from "expo-router";
-import { FlatList, ListRenderItem, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { bgColors, textColors } from "@/constants/constants";
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { bgColors, textColors, textSizes } from "@/constants/constants";
 import useAppStore from "@/lib/zustand/store";
-import TextConfigInput from "../components/TextConfigInput";
-
+import TextConfigInput from "@/components/TextConfigInput";
+import TextSizeInput from "@/components/TextSizeInput";
 
 const index = () => {
   const [text, setText] = useState("Hello World!");
   const textColor = useAppStore(state => state.textColor)
   const bgColor = useAppStore(state => state.bgColor)
+  const fontSize = useAppStore(state => state.fontSize)
   const updateConfig = useAppStore(state => state.updateConfig)
 
   const handlePress = () => {
@@ -25,11 +26,15 @@ const index = () => {
     updateConfig({ bgColor: color });
   }
 
+  const updateFontSize = (size: number) => {
+    updateConfig({ fontSize: size });
+  }
+
 
   return (
     <View style={styles.container}>
       <View style={[styles.textContainer, { backgroundColor: bgColor }]}>
-        <Text style={[styles.previewText, { color: textColor }]}>
+        <Text style={[styles.previewText, { color: textColor, fontSize }]}>
           {text}
         </Text>
       </View>
@@ -37,7 +42,7 @@ const index = () => {
         <View style={styles.textInputContainer}>
           <TextInput
             style={styles.textInput}
-            placeholder="Type something..."
+            placeholder="Enter Text"
             value={text}
             cursorColor={"white"}
             placeholderTextColor={"white"}
@@ -71,6 +76,18 @@ const index = () => {
             renderItem={({ item }) => <TextConfigInput item={item} selected={bgColor} handlePress={updateBgColor} />}
           />
         </View>
+        <View style={styles.config}>
+          <Text style={styles.configTitle}>
+            Text Size
+          </Text>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={textSizes}
+            keyExtractor={(item) => item.name}
+            renderItem={({ item }) => <TextSizeInput item={item} selected={fontSize} handlePress={updateFontSize} />}
+          />
+        </View>
       </View>
     </View>
   );
@@ -88,7 +105,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   previewText: {
-    fontSize: 20,
     textAlign: "center",
     padding: 10,
   },
@@ -127,10 +143,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   config: {
-    rowGap: 20,
+    rowGap: 15,
   },
   configTitle: {
-    fontSize: 18,
+    fontSize: 16,
     color: "white",
     fontWeight: "bold",
   },

@@ -1,4 +1,4 @@
-import { ListRenderItem, Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 type TextConfigInputProps = {
     item: string;
@@ -20,16 +20,16 @@ const styles = StyleSheet.create({
     selectedConfig: {
         width: 55,
         height: 55,
-        borderRadius: 50,
+        borderRadius: 5,
         justifyContent: "center",
         alignItems: "center",
         borderWidth: 1,
-        padding: 5,
-        marginRight: 12,
+        padding: 3,
+        marginRight: 10,
     },
     configInput: {
         width: "100%",
         height: "100%",
-        borderRadius: 50,
+        borderRadius: 5,
     },
 });

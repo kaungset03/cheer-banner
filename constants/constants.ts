@@ -41,5 +41,23 @@ const bgColors = [
   "#7FB3D5", // Pastel Blue
 ];
 
+const textSizes = [
+  {
+    name: "sm",
+    size: 32,
+  },
+  {
+    name: "md",
+    size: 48,
+  },
+  {
+    name: "lg",
+    size: 64,
+  },
+  {
+    name: "xl",
+    size: 128,
+  },
+];
 
-export { textColors, bgColors };
+export { textColors, bgColors, textSizes };

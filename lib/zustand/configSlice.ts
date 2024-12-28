@@ -5,7 +5,7 @@ export interface ConfigSlice extends TextConfig {
 }
 
 const createConfigSlice: StateCreator<ConfigSlice> = (set) => ({
-  fontSize: 48,
+  fontSize: 32,
   fontFamily: "Arial",
   textColor: "#FFFFFF",
   bgColor: "#000000",
