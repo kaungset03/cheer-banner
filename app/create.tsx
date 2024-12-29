@@ -1,11 +1,11 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import useAppStore from "@/lib/zustand/store";
 import TextConfigs from "@/components/TextConfigs";
-import AnimationConfig from "../components/AnimationConfig";
+import AnimationConfigs from "@/components/AnimationConfigs";
 
 const create = () => {
     const [text, setText] = useState("Hello World!");
@@ -28,6 +28,9 @@ const create = () => {
                 <Text style={[styles.previewText, { color: textColor, fontSize }]}>
                     {text}
                 </Text>
+                <Pressable style={styles.saveBtn}>
+                    <FontAwesome name="bookmark-o" size={20} color="white" />
+                </Pressable>
             </View>
             <View style={styles.inputContainer}>
                 <View style={styles.textInputContainer}>
@@ -43,14 +46,14 @@ const create = () => {
                         <FontAwesome name="send" size={20} color="white" />
                     </Pressable>
                 </View>
-                <View style={styles.configContainer}>
-                    <Pressable style={styles.navBtn} onPress={() => handleNavPress("text")}>
+                <View style={styles.navContainer}>
+                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "text" ? "gray" : "transparent"}]} onPress={() => handleNavPress("text")}>
                         <MaterialCommunityIcons name="format-text" size={20} color="white" />
                         <Text style={styles.text}>
                             Text
                         </Text>
                     </Pressable>
-                    <Pressable style={styles.navBtn} onPress={() => handleNavPress("animation")}>
+                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "animation" ? "gray" : "transparent"}]} onPress={() => handleNavPress("animation")}>
                         <MaterialCommunityIcons name="animation-play" size={20} color="white" />
                         <Text style={styles.text}>
                             Animation
@@ -60,7 +63,7 @@ const create = () => {
                 {showedConfig === "text" ?
                     <TextConfigs selectedTextColor={textColor} selectedBgColor={bgColor} selectedFontSize={fontSize} />
                     :
-                    <AnimationConfig />}
+                    <AnimationConfigs />}
             </View>
         </View>
     );
@@ -76,6 +79,15 @@ const styles = StyleSheet.create({
         height: 250,
         justifyContent: "center",
         alignItems: "center",
+        position: "relative",
+    },
+    saveBtn: {
+        position: "absolute",
+        top: 25,
+        right: 20,
+        backgroundColor: "#1e1e1e",
+        padding: 13,
+        borderRadius: 10,
     },
     previewText: {
         textAlign: "center",
@@ -89,7 +101,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#1e1e1e",
         paddingHorizontal: 10,
         paddingVertical: 20,
-        rowGap: 30,
+        rowGap: 25,
     },
     textInputContainer: {
         flexDirection: "row",
@@ -114,20 +126,22 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
     },
-    configContainer: {
+    navContainer: {
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
+        borderBottomWidth: 1,
+        borderBottomColor: "white",
+        paddingBottom: 3,
     },
     navBtn: {
         flex: 1,
         paddingVertical: 15,
+        borderRadius: 10,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         columnGap: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: "white",
     },
     text: {
         color: "white",

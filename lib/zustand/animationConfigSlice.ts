@@ -8,7 +8,7 @@ const createAnimationConfigSlice: StateCreator<AnimationConfigSlice> = (
   set
 ) => ({
   animationType: "right_to_left",
-  speed: 300,
+  animationSpeed: 2.5, 
   updateAnimationConfig: (config) => set((state) => ({ ...state, ...config })),
 });
 

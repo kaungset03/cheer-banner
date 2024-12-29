@@ -8,7 +8,7 @@ declare global {
 
   interface AnimationConfig {
     animationType: string;
-    speed: number;
+    animationSpeed: number;
   }
 }
 

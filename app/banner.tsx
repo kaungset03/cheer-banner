@@ -7,7 +7,7 @@ import useAppStore from '@/lib/zustand/store';
 
 
 const banner = () => {
-  const { fontSize, fontFamily, textColor, bgColor, animationType } = useAppStore((state) => state)
+  const { fontSize, fontFamily, textColor, bgColor, animationType, animationSpeed } = useAppStore((state) => state)
   const { text } = useLocalSearchParams()
   const width = useWindowDimensions().width;
 
@@ -37,7 +37,7 @@ const banner = () => {
       {animationType === "none" ? <View style={marqueeContainer}>
         <Text style={textStyles}>{text}</Text>
       </View> :
-        <Marquee speed={1.5} reverse={animationType === "left_to_right"} spacing={width} style={marqueeContainer}>
+        <Marquee speed={animationSpeed} reverse={animationType === "left_to_right"} spacing={width} style={marqueeContainer}>
           <Text style={textStyles}>
             {text}
           </Text>
