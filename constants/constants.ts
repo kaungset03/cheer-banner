@@ -60,4 +60,6 @@ const textSizes = [
   },
 ];
 
-export { textColors, bgColors, textSizes };
+const animationTypes = ["none", "right_to_left", "left_to_right"];
+
+export { textColors, bgColors, textSizes, animationTypes };

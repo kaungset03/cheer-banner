@@ -7,7 +7,7 @@ export interface AnimationConfigSlice extends AnimationConfig {
 const createAnimationConfigSlice: StateCreator<AnimationConfigSlice> = (
   set
 ) => ({
-  animation: "right_to_left",
+  animationType: "right_to_left",
   speed: 300,
   updateAnimationConfig: (config) => set((state) => ({ ...state, ...config })),
 });

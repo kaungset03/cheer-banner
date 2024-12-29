@@ -7,7 +7,7 @@ declare global {
   }
 
   interface AnimationConfig {
-    animation: "left_to_right" | "right_to_left" | "scale" | "fade";
+    animationType: string;
     speed: number;
   }
 }

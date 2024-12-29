@@ -1,35 +1,26 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 import { router } from "expo-router";
-import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { bgColors, textColors, textSizes } from "@/constants/constants";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import useAppStore from "@/lib/zustand/store";
-import TextConfigInput from "@/components/TextConfigInput";
-import TextSizeInput from "@/components/TextSizeInput";
+import TextConfigs from "@/components/TextConfigs";
+import AnimationConfig from "../components/AnimationConfig";
 
 const create = () => {
     const [text, setText] = useState("Hello World!");
+    const [showedConfig, setShowedConfig] = useState<"text" | "animation">("text");
     const textColor = useAppStore(state => state.textColor)
     const bgColor = useAppStore(state => state.bgColor)
     const fontSize = useAppStore(state => state.fontSize)
-    const updateConfig = useAppStore(state => state.updateTextConfig)
 
     const handlePress = () => {
         router.push({ pathname: "/banner", params: { text } });
     }
 
-    const updateTextColor = (color: string) => {
-        updateConfig({ textColor: color });
+    const handleNavPress = (config: "text" | "animation") => {
+        setShowedConfig(config);
     }
-
-    const updateBgColor = (color: string) => {
-        updateConfig({ bgColor: color });
-    }
-
-    const updateFontSize = (size: number) => {
-        updateConfig({ fontSize: size });
-    }
-
 
     return (
         <View style={styles.container}>
@@ -52,42 +43,24 @@ const create = () => {
                         <FontAwesome name="send" size={20} color="white" />
                     </Pressable>
                 </View>
-                <View style={styles.config}>
-                    <Text style={styles.configTitle}>
-                        Text Color
-                    </Text>
-                    <FlatList
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        data={textColors}
-                        keyExtractor={(item) => item}
-                        renderItem={({ item }) => <TextConfigInput item={item} selected={textColor} handlePress={updateTextColor} />}
-                    />
+                <View style={styles.configContainer}>
+                    <Pressable style={styles.navBtn} onPress={() => handleNavPress("text")}>
+                        <MaterialCommunityIcons name="format-text" size={20} color="white" />
+                        <Text style={styles.text}>
+                            Text
+                        </Text>
+                    </Pressable>
+                    <Pressable style={styles.navBtn} onPress={() => handleNavPress("animation")}>
+                        <MaterialCommunityIcons name="animation-play" size={20} color="white" />
+                        <Text style={styles.text}>
+                            Animation
+                        </Text>
+                    </Pressable>
                 </View>
-                <View style={styles.config}>
-                    <Text style={styles.configTitle}>
-                        Background Color
-                    </Text>
-                    <FlatList
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        data={bgColors}
-                        keyExtractor={(item) => item}
-                        renderItem={({ item }) => <TextConfigInput item={item} selected={bgColor} handlePress={updateBgColor} />}
-                    />
-                </View>
-                <View style={styles.config}>
-                    <Text style={styles.configTitle}>
-                        Text Size
-                    </Text>
-                    <FlatList
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        data={textSizes}
-                        keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => <TextSizeInput item={item} selected={fontSize} handlePress={updateFontSize} />}
-                    />
-                </View>
+                {showedConfig === "text" ?
+                    <TextConfigs selectedTextColor={textColor} selectedBgColor={bgColor} selectedFontSize={fontSize} />
+                    :
+                    <AnimationConfig />}
             </View>
         </View>
     );
@@ -100,7 +73,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         width: "100%",
-        height: 230,
+        height: 250,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -141,12 +114,22 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
     },
-    config: {
-        rowGap: 15,
+    configContainer: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
     },
-    configTitle: {
-        fontSize: 16,
+    navBtn: {
+        flex: 1,
+        paddingVertical: 15,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        columnGap: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "white",
+    },
+    text: {
         color: "white",
-        fontWeight: "bold",
     },
 });
