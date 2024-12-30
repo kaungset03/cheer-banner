@@ -60,6 +60,6 @@ const textSizes = [
   },
 ];
 
-const animationTypes = ["none", "right_to_left", "left_to_right"];
+const animationTypes = ["none", "right_to_left", "left_to_right", "blink"];
 
 export { textColors, bgColors, textSizes, animationTypes };

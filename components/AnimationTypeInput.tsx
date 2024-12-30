@@ -1,27 +1,23 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import useAppStore from "@/lib/zustand/store";
 
 type AnimationTypeInputProps = {
     item: string;
+    selected: string;
+    handlePress: (v: string) => void;
 }
 
-const AnimationTypeInput = ({ item }: AnimationTypeInputProps) => {
-    const selectedAnimationType = useAppStore((state) => state.animationType);
-    const updateConfig = useAppStore((state) => state.updateAnimationConfig);
-
-    const handlePress = () => {
-        updateConfig({ animationType: item });
-    }
-
-    const isSelected = selectedAnimationType === item;
+const AnimationTypeInput = ({ item, selected, handlePress }: AnimationTypeInputProps) => {
+    const isSelected = item === selected;
 
     return (
-        <Pressable style={[styles.selectedConfig, { borderColor: isSelected ? "white" : "transparent" }]} onPress={handlePress}>
+        <Pressable style={[styles.selectedConfig, { borderColor: isSelected ? "white" : "transparent" }]} onPress={() => handlePress(item)}>
             <View style={styles.configInput} >
                 {item === "none" ? <MaterialIcons name="cancel" size={23} color="white" style={{ textAlign: "center" }} /> :
-                    <Entypo name={item === "left_to_right" ? "arrow-bold-right" : "arrow-bold-left"} size={23} color="white" style={{ textAlign: "center" }} />}
+                    <Entypo 
+                    name={item === "right_to_left" ? "arrow-left" : item === "left_to_right" ? "arrow-right" : "star-outlined"}
+                    size={23} color="white" style={{ textAlign: "center" }} />}
             </View>
         </Pressable>
     )

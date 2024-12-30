@@ -4,12 +4,17 @@ import { animationTypes } from "@/constants/constants";
 import AnimationTypeInput from "@/components/AnimationTypeInput";
 import useAppStore from "@/lib/zustand/store";
 const AnimationConfig = () => {
-    const value = useAppStore((state) => state.animationSpeed);
+    const speed = useAppStore((state) => state.animationSpeed);
+    const type = useAppStore((state) => state.animationType);
     const updateAnimationConfig = useAppStore((state) => state.updateAnimationConfig);
 
-    const setValue = (value: number) => {
-        updateAnimationConfig({ animationSpeed: parseFloat(value.toFixed(1)) });
-    };
+    const updateSpeed = (value: number) => {
+        updateAnimationConfig({ animationSpeed: value });
+    }
+
+    const updateType = (value: string) => {
+        updateAnimationConfig({ animationType: value });
+    }
 
 
     return (
@@ -18,17 +23,17 @@ const AnimationConfig = () => {
                 <Text style={styles.configTitle}>
                     Animation Type
                 </Text>
-                <FlatList horizontal data={animationTypes} renderItem={({ item }) => <AnimationTypeInput item={item} />} />
+                <FlatList horizontal data={animationTypes} renderItem={({ item }) => <AnimationTypeInput item={item} selected={type} handlePress={updateType} />} />
             </View>
             <View style={styles.config}>
                 <Text style={styles.configTitle}>
                     Animation Speed
                 </Text>
                 <Slider
-                    value={value}
+                    value={speed}
                     minimumValue={1}
                     maximumValue={5}
-                    onValueChange={(value) => setValue(value[0])}
+                    onValueChange={(value) => updateSpeed(value[0])}
                 />
             </View>
         </View>

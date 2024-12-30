@@ -4,6 +4,8 @@ import { useLocalSearchParams } from 'expo-router';
 import { Text, View, StyleSheet, useWindowDimensions, ViewStyle } from 'react-native';
 import * as ScreenOrientation from "expo-screen-orientation";
 import useAppStore from '@/lib/zustand/store';
+import BlinkText from '@/components/BlinkText';
+import NormalText from '@/components/NormalText';
 
 
 const banner = () => {
@@ -11,6 +13,7 @@ const banner = () => {
   const { text } = useLocalSearchParams()
   const width = useWindowDimensions().width;
 
+  const duration = Math.round(1500 / animationSpeed);
   const textStyles = {
     fontSize,
     fontFamily,
@@ -34,14 +37,16 @@ const banner = () => {
 
   return (
     <View style={styles.container}>
-      {animationType === "none" ? <View style={marqueeContainer}>
-        <Text style={textStyles}>{text}</Text>
-      </View> :
-        <Marquee speed={animationSpeed} reverse={animationType === "left_to_right"} spacing={width} style={marqueeContainer}>
-          <Text style={textStyles}>
-            {text}
-          </Text>
-        </Marquee>}
+      {
+        animationType === "none" ? <NormalText text={text as string} textStyles={textStyles} containerStyle={marqueeContainer} />
+          :
+          animationType === "blink" ? <BlinkText text={text as string} textStyles={textStyles} containerStyle={marqueeContainer} duration={duration} />
+            :
+            <Marquee speed={animationSpeed} reverse={animationType === "left_to_right"} spacing={width} style={marqueeContainer}>
+              <Text style={textStyles}>
+                {text}
+              </Text>
+            </Marquee>}
     </View>
   );
 }
