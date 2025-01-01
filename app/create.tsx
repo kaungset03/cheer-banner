@@ -4,15 +4,17 @@ import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import useAppStore from "@/lib/zustand/store";
+import SaveButton from "@/components/SaveButton";
 import TextConfigs from "@/components/TextConfigs";
 import AnimationConfigs from "@/components/AnimationConfigs";
 
 const create = () => {
-    const [text, setText] = useState("Hello World!");
-    const [showedConfig, setShowedConfig] = useState<"text" | "animation">("text");
     const textColor = useAppStore(state => state.textColor)
     const bgColor = useAppStore(state => state.bgColor)
     const fontSize = useAppStore(state => state.fontSize)
+    const text = useAppStore(state => state.text)
+    const [typed, setTyped] = useState(text);
+    const [showedConfig, setShowedConfig] = useState<"text" | "animation">("text");
 
     const handlePress = () => {
         router.push({ pathname: "/banner", params: { text } });
@@ -26,11 +28,9 @@ const create = () => {
         <View style={styles.container}>
             <View style={[styles.textContainer, { backgroundColor: bgColor }]}>
                 <Text style={[styles.previewText, { color: textColor, fontSize }]}>
-                    {text}
+                    {typed}
                 </Text>
-                <Pressable style={styles.saveBtn}>
-                    <FontAwesome name="bookmark-o" size={20} color="white" />
-                </Pressable>
+                <SaveButton />
             </View>
             <View style={styles.inputContainer}>
                 <View style={styles.textInputContainer}>
@@ -40,20 +40,20 @@ const create = () => {
                         value={text}
                         cursorColor={"white"}
                         placeholderTextColor={"white"}
-                        onChangeText={setText}
+                        onChangeText={setTyped}
                     />
                     <Pressable style={styles.btn} onPress={handlePress}>
                         <FontAwesome name="send" size={20} color="white" />
                     </Pressable>
                 </View>
                 <View style={styles.navContainer}>
-                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "text" ? "gray" : "transparent"}]} onPress={() => handleNavPress("text")}>
+                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "text" ? "gray" : "transparent" }]} onPress={() => handleNavPress("text")}>
                         <MaterialCommunityIcons name="format-text" size={20} color="white" />
                         <Text style={styles.text}>
                             Text
                         </Text>
                     </Pressable>
-                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "animation" ? "gray" : "transparent"}]} onPress={() => handleNavPress("animation")}>
+                    <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "animation" ? "gray" : "transparent" }]} onPress={() => handleNavPress("animation")}>
                         <MaterialCommunityIcons name="animation-play" size={20} color="white" />
                         <Text style={styles.text}>
                             Animation
@@ -80,14 +80,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-    },
-    saveBtn: {
-        position: "absolute",
-        top: 25,
-        right: 20,
-        backgroundColor: "#1e1e1e",
-        padding: 13,
-        borderRadius: 10,
     },
     previewText: {
         textAlign: "center",

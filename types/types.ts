@@ -1,5 +1,6 @@
 declare global {
   interface TextConfig {
+    text: string;
     fontSize: number;
     fontFamily: string;
     textColor: string;
