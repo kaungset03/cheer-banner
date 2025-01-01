@@ -27,7 +27,7 @@ const BlinkText = ({ text, textStyles, containerStyle, duration }: BlinkTextProp
 
     return (
         <View style={containerStyle}>
-            <Animated.Text style={[textStyles, animatedStyles]}>
+            <Animated.Text style={[textStyles, animatedStyles, { textAlign: "center" }]}>
                 {text}
             </Animated.Text>
         </View>

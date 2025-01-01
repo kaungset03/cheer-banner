@@ -13,7 +13,9 @@ type NormalTextProps = {
 const NormalText = ({ text, textStyles, containerStyle }: NormalTextProps) => {
     return (
         <View style={containerStyle}>
-            <Text style={textStyles}>NormalText</Text>
+            <Text style={[textStyles, { textAlign: "center" }]}>
+                {text}
+            </Text>
         </View>
     );
 };

@@ -10,6 +10,19 @@ declare global {
     animationType: string;
     animationSpeed: number;
   }
+
+  interface SavedBanner {
+    id: string;
+    text: string;
+    fontSize: number;
+    fontFamily: string;
+    textColor: string;
+    bgColor: string;
+    animationType: string;
+    animationSpeed: number;
+    savedAt: Date;
+    order: number;
+  }
 }
 
 export {};

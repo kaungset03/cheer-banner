@@ -8,7 +8,7 @@ const layout = () => {
         <Stack.Screen name="create" />
         <Stack.Screen name="banner" />
       </Stack>
-      <StatusBar hidden />
+      <StatusBar showHideTransition={"slide"} hidden />
     </>
   );
 };
