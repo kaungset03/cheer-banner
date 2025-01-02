@@ -2,8 +2,13 @@ import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import useAppStore from "@/lib/zustand/store";
-const SaveButton = () => {
-    const { text, textColor, fontSize, fontFamily, bgColor, animationType, animationSpeed, addBanner } = useAppStore((state) => state);
+
+type SavedBannerProps = {
+    typed: string
+}
+
+const SaveButton = ({typed}: SavedBannerProps) => {
+    const { textColor, fontSize, fontFamily, bgColor, animationType, animationSpeed, addBanner } = useAppStore((state) => state);
 
     const [showModal, setShowModal] = useState(false);
 
@@ -16,7 +21,7 @@ const SaveButton = () => {
         const savedAt = new Date().toISOString();
         const newBanner: SavedBanner = {
             id,
-            text,
+            text: typed,
             textColor,
             fontSize,
             fontFamily,

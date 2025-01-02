@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { Pressable, StyleSheet, Text } from "react-native";
 
 type BannerItemProps = {
@@ -5,8 +6,13 @@ type BannerItemProps = {
 }
 
 const BannerItem = ({ banner }: BannerItemProps) => {
+    const onPress = () => {
+        router.navigate(`/banner/${banner.id}`);
+    }
+
+
     return (
-        <Pressable style={styles.item} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }}>
+        <Pressable style={styles.item} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={onPress}>
             <Text style={styles.text}>
                 {banner.text}
             </Text>

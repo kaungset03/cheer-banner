@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Marquee } from '@animatereactnative/marquee';
-import { useLocalSearchParams } from 'expo-router';
 import { Text, View, StyleSheet, useWindowDimensions, ViewStyle } from 'react-native';
 import * as ScreenOrientation from "expo-screen-orientation";
 import useAppStore from '@/lib/zustand/store';
@@ -9,8 +8,7 @@ import NormalText from '@/components/NormalText';
 
 
 const Banner = () => {
-  const { fontSize, fontFamily, textColor, bgColor, animationType, animationSpeed } = useAppStore((state) => state)
-  const { text } = useLocalSearchParams()
+  const { text, fontSize, fontFamily, textColor, bgColor, animationType, animationSpeed } = useAppStore((state) => state)
   const width = useWindowDimensions().width;
 
   const duration = Math.round(1500 / animationSpeed);

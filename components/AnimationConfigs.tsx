@@ -3,9 +3,14 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { animationTypes } from "@/constants/constants";
 import AnimationTypeInput from "@/components/AnimationTypeInput";
 import useAppStore from "@/lib/zustand/store";
-const AnimationConfig = () => {
-    const speed = useAppStore((state) => state.animationSpeed);
-    const type = useAppStore((state) => state.animationType);
+
+type AnimationConfigProps = {
+    type: string;
+    speed: number;
+};
+
+
+const AnimationConfig = ({ type, speed }: AnimationConfigProps) => {
     const updateAnimationConfig = useAppStore((state) => state.updateAnimationConfig);
 
     const updateSpeed = (value: number) => {
