@@ -8,7 +8,7 @@ import BlinkText from '@/components/BlinkText';
 import NormalText from '@/components/NormalText';
 
 
-const banner = () => {
+const Banner = () => {
   const { fontSize, fontFamily, textColor, bgColor, animationType, animationSpeed } = useAppStore((state) => state)
   const { text } = useLocalSearchParams()
   const width = useWindowDimensions().width;
@@ -51,7 +51,7 @@ const banner = () => {
   );
 }
 
-export default banner;
+export default Banner;
 
 
 const styles = StyleSheet.create({

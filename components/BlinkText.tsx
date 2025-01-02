@@ -22,7 +22,7 @@ const BlinkText = ({ text, textStyles, containerStyle, duration }: BlinkTextProp
 
     useEffect(() => {
         opacity.value = withRepeat(withTiming(0, { duration }), -1, true);
-    }, [])
+    }, [duration, opacity])
 
 
     return (

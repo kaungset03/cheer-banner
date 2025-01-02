@@ -1,10 +1,32 @@
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import useAppStore from "@/lib/zustand/store";
 const SaveButton = () => {
+    const { text, textColor, fontSize, fontFamily, bgColor, animationType, animationSpeed, addBanner } = useAppStore((state) => state);
+
     const [showModal, setShowModal] = useState(false);
+
     const toggleModal = () => {
         setShowModal(!showModal);
+    }
+
+    const handleSave = () => {
+        const id = Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+        const savedAt = new Date().toISOString();
+        const newBanner: SavedBanner = {
+            id,
+            text,
+            textColor,
+            fontSize,
+            fontFamily,
+            bgColor,
+            animationType,
+            animationSpeed,
+            savedAt,
+        }
+        addBanner(newBanner);
+        toggleModal();
     }
 
 
@@ -30,7 +52,7 @@ const SaveButton = () => {
                             <Pressable style={[styles.button, styles.buttonOpen]} onPress={toggleModal}>
                                 <Text style={styles.btnText}>Cancel</Text>
                             </Pressable>
-                            <Pressable style={[styles.button, styles.buttonClose]} onPress={toggleModal}>
+                            <Pressable style={[styles.button, styles.buttonClose]} onPress={handleSave}>
                                 <Text style={styles.btnText}>Save</Text>
                             </Pressable>
                         </View>

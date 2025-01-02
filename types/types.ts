@@ -21,8 +21,8 @@ declare global {
     bgColor: string;
     animationType: string;
     animationSpeed: number;
-    savedAt: Date;
-    order: number;
+    savedAt: string;
+    //order: number;
   }
 }
 

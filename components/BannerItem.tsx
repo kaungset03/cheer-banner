@@ -1,12 +1,17 @@
 import { Pressable, StyleSheet, Text } from "react-native";
-const BannerItem = () => {
+
+type BannerItemProps = {
+    banner: SavedBanner;
+}
+
+const BannerItem = ({ banner }: BannerItemProps) => {
     return (
         <Pressable style={styles.item} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }}>
             <Text style={styles.text}>
-                Lorem ipsum dolor sit amet.
+                {banner.text}
             </Text>
             <Text style={styles.time}>
-                5: 40 PM
+                {banner.savedAt}
             </Text>
         </Pressable>
     );

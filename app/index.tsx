@@ -1,9 +1,9 @@
 import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import BannerItem from "@/components/BannerItem";
+import BannersList from "@/components/BannersList";
 
-const index = () => {
+const Index = () => {
   const handlePress = () => {
     router.push({ pathname: "/create" });
   }
@@ -11,17 +11,14 @@ const index = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome</Text>
-      <View style={styles.list}>
-        <BannerItem />
-        <BannerItem />
-      </View>
+      <BannersList />
       <Pressable style={styles.btn} onPress={handlePress}>
         <Ionicons name="add" size={35} color="#1e1e1e" />
       </Pressable>
     </View>
   );
 };
-export default index;
+export default Index;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,9 +34,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#e0e0e0",
     paddingBottom: 15,
   },
-  list: {
-    paddingTop: 15,
-  },
   btn: {
     position: "absolute",
     bottom: 80,
@@ -49,8 +43,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
-        width: 0,
-        height: 2,
+      width: 0,
+      height: 2,
     },
     shadowOpacity: 0.5,
     shadowRadius: 4,

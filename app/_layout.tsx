@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "react-native";
-const layout = () => {
+const Layout = () => {
   return (
     <>
       <Stack screenOptions={{ headerShown: false, animation: "fade_from_bottom", animationDuration: 300 }}>
@@ -12,4 +12,4 @@ const layout = () => {
     </>
   );
 };
-export default layout;
+export default Layout;

@@ -8,7 +8,7 @@ import SaveButton from "@/components/SaveButton";
 import TextConfigs from "@/components/TextConfigs";
 import AnimationConfigs from "@/components/AnimationConfigs";
 
-const create = () => {
+const Create = () => {
     const textColor = useAppStore(state => state.textColor)
     const bgColor = useAppStore(state => state.bgColor)
     const fontSize = useAppStore(state => state.fontSize)
@@ -17,7 +17,7 @@ const create = () => {
     const [showedConfig, setShowedConfig] = useState<"text" | "animation">("text");
 
     const handlePress = () => {
-        router.push({ pathname: "/banner", params: { text } });
+        router.push({ pathname: "/banner", params: { text: typed } });
     }
 
     const handleNavPress = (config: "text" | "animation") => {
@@ -68,7 +68,7 @@ const create = () => {
         </View>
     );
 };
-export default create;
+export default Create;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
