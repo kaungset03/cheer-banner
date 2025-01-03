@@ -1,32 +1,28 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-const NavigationBar = () => {
-    const [showedConfig, setShowedConfig] = useState<"text" | "animation">("text");
 
-    const handleNavPress = (config: "text" | "animation") => {
-        setShowedConfig(config);
-    };
+type NavigationBarProps = {
+    showedConfig: string;
+    handlePress: (v: "animation" | "text") => void
+}
 
+const NavigationBar = ({ showedConfig, handlePress }: NavigationBarProps) => {
     return (
-        <>
-            <View style={styles.navContainer}>
-                <Pressable
-                    style={[styles.navBtn, { backgroundColor: showedConfig === "text" ? "gray" : "transparent" }]}
-                    onPress={() => handleNavPress("text")}
-                >
-                    <MaterialCommunityIcons name="format-text" size={20} color="white" />
-                    <Text style={styles.text}>Text</Text>
-                </Pressable>
-                <Pressable
-                    style={[styles.navBtn, { backgroundColor: showedConfig === "animation" ? "gray" : "transparent" }]}
-                    onPress={() => handleNavPress("animation")}
-                >
-                    <MaterialCommunityIcons name="animation-outline" size={20} color="white" />
-                    <Text style={styles.text}>Animation</Text>
-                </Pressable>
-            </View>
-        </>
+        <View style={styles.navContainer}>
+            <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "text" ? "gray" : "transparent" }]} onPress={() => handlePress("text")}>
+                <MaterialCommunityIcons name="format-text" size={20} color="white" />
+                <Text style={styles.text}>
+                    Text
+                </Text>
+            </Pressable>
+            <Pressable style={[styles.navBtn, { backgroundColor: showedConfig === "animation" ? "gray" : "transparent" }]} onPress={() => handlePress("animation")}>
+                <MaterialCommunityIcons name="animation-play" size={20} color="white" />
+                <Text style={styles.text}>
+                    Animation
+                </Text>
+            </Pressable>
+        </View>
+
     );
 };
 export default NavigationBar;
