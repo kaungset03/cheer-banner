@@ -6,6 +6,7 @@ export interface SavedBannerSlice {
   addBanner: (banner: SavedBanner) => void;
   removeBanner: (bannerId: string) => void;
   updateBanner: (bannerId: string, banner: Partial<SavedBanner>) => void;
+  deleteAllBanners: () => void;
 }
 
 const createSavedBannerSlice: StateCreator<SavedBannerSlice> = (set) => ({
@@ -22,6 +23,7 @@ const createSavedBannerSlice: StateCreator<SavedBannerSlice> = (set) => ({
         b.id === bannerId ? { ...b, ...banner } : b
       ),
     })),
+  deleteAllBanners: () => set({ banners: [] }),
 });
 
 export default createSavedBannerSlice;
