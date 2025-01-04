@@ -2,7 +2,7 @@ import { Pressable, StyleSheet } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import useAppStore from "@/lib/zustand/store";
-import ConfirmModal from "./ConfirmModal";
+import ConfirmModal from "@/components/ConfirmModal";
 
 
 const SaveButton = () => {

@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import TextColorInput from "@/components/TextColorInput";
 import BackgroundColorInput from "@/components/BackgroundColorInput";
+import TextSizeInput from "@/components/TextSizeInput";
 
 type TextConfigsProps = {
     textColor: string;
@@ -19,15 +20,15 @@ const TextConfigs = ({ textColor, bgColor, fontSize, onUpdateTextConfig }: TextC
         onUpdateTextConfig("bgColor", color);
     }
 
-    // const updateFontSize = (size: number) => {
-    //     onUpdateTextConfig("fontSize", size);
-    // }
+    const updateFontSize = (size: number) => {
+        onUpdateTextConfig("fontSize", size);
+    }
 
     return (
         <View style={styles.configContainer}>
             <TextColorInput textColor={textColor} onSelected={updateTextColor} />
             <BackgroundColorInput bgColor={bgColor} onSelected={updateBgColor} />
-            {/* <TextFontSizeInput fontSize={fontSize} onSelected={updateFontSize} /> */}
+            <TextSizeInput textSize={fontSize} onSelected={updateFontSize} />
         </View>
     );
 };
