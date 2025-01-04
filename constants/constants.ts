@@ -1,44 +1,58 @@
 const textColors = [
-  "#FFFFFF", // White
-  "#FF0000", // Red
-  "#00FF00", // Lime
-  "#0000FF", // Blue
-  "#FFFF00", // Yellow
-  "#FF00FF", // Magenta
-  "#00FFFF", // Cyan
-  "#808080", // Gray
-  "#800000", // Maroon
-  "#808000", // Olive
-  "#800080", // Purple
-  "#008080", // Teal
-  "#FFA500", // Orange
-  "#A52A2A", // Brown
-  "#2E8B57", // Sea Green
-  "#4682B4", // Steel Blue
-  "#6A5ACD", // Slate Blue
-  "#D2691E", // Chocolate
-  "#B22222", // Firebrick
+  "#ffffff",
+  "#e52165",
+  "#0d1137",
+  "#d72631",
+  "#a2d5c6",
+  "#077b8a",
+  "#5c3c92",
+  "#e2d810",
+  "#d9138a",
+  "#12a4d9",
+  "#322e2f",
+  "#f3ca20",
+  "#000000",
+  "#cf1578",
+  "#e8d21d",
+  "#039fbe",
+  "#b20238",
+  "#316879",
+  "#7fe7dc",
+  "#ced7d8",
+  "#ffcce7",
+  "#daf2dc",
+  "#81b7d2",
+  "#4d5198",
+  "#097770",
 ];
+
 
 const bgColors = [
   "#000000", // Black
-  "#FF5733", // Light Red-Orange
-  "#C70039", // Deep Pink
-  "#900C3F", // Burgundy
-  "#581845", // Purple
-  "#1C2833", // Charcoal
-  "#F4D03F", // Golden Yellow
-  "#52BE80", // Light Green
-  "#45B39D", // Turquoise
-  "#5DADE2", // Sky Blue
-  "#2E4053", // Dark Slate
-  "#D5D8DC", // Silver
-  "#AF7AC5", // Lavender
-  "#F39C12", // Sunburst
-  "#E74C3C", // Coral Red
-  "#AAB7B8", // Light Steel
+  "#33FF57", // Lime Green
+  "#3357FF", // Blue
+  "#F1C40F", // Yellow
+  "#9B59B6", // Purple
+  "#1ABC9C", // Turquoise
+  "#34495E", // Dark Gray
+  "#E74C3C", // Red
+  "#2ECC71", // Green
+  "#3498DB", // Blue
+  "#9B59B6", // Purple
+  "#F39C12", // Orange
+  "#E67E22", // Carrot
+  "#16A085", // Sea Green
+  "#2980B9", // Bright Blue
+  "#8E44AD", // Violet
   "#27AE60", // Emerald Green
-  "#7FB3D5", // Pastel Blue
+  "#D35400", // Dark Orange
+  "#C0392B", // Strong Red
+  "#BDC3C7", // Silver
+  "#7F8C8D", // Concrete Gray
+  "#F4D03F", // Golden Yellow
+  "#5D6D7E", // Slate Blue
+  "#AAB7B8", // Light Gray
+  "#F5B7B1", // Light Red
 ];
 
 const textSizes = [
