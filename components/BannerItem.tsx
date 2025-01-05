@@ -8,8 +8,8 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
     }
 
     return (
-        <Pressable style={styles.item} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={viewBanner}>
-            <Text style={styles.text} ellipsizeMode="tail" numberOfLines={1}>
+        <Pressable style={[styles.item, { backgroundColor: item.bgColor }]} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={viewBanner}>
+            <Text style={[styles.text, { color: item.textColor }]} ellipsizeMode="tail" numberOfLines={1}>
                 {item.text}
             </Text>
             <Text style={styles.time}>
