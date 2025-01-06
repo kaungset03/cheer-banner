@@ -43,7 +43,7 @@ const BannersList = () => {
 
     return (
         <>
-            <FlatList style={styles.list} keyExtractor={item => item.id} data={savedBanners} ListHeaderComponent={listHeader} renderItem={BannerItem} ListEmptyComponent={ListEmptyComponent} />
+            <FlatList keyExtractor={item => item.id} data={savedBanners} ListHeaderComponent={listHeader} renderItem={BannerItem} ListEmptyComponent={ListEmptyComponent} />
             <ConfirmModal title="Delete" description="Do you want to delete all saved banners?" showModal={showModal} onCancel={toggleModal} onConfirm={handleDeleteAll} />
         </>
     );
@@ -51,9 +51,6 @@ const BannersList = () => {
 export default BannersList;
 
 const styles = StyleSheet.create({
-    list: {
-        paddingTop: 15,
-    },
     header: {
         flexDirection: "row",
         justifyContent: "space-between",
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
     deleteBtn: {
         width: "25%",
         marginLeft: "auto",
-        paddingVertical: 8,
+        paddingVertical: 15,
     },
     text: {
         fontSize: 16,

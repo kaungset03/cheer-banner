@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { ListRenderItem, Pressable, StyleSheet, Text } from "react-native";
+import { ListRenderItem, Pressable, StyleSheet, Text, View } from "react-native";
 
 
 const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
@@ -8,13 +8,15 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
     }
 
     return (
-        <Pressable style={[styles.item, { backgroundColor: item.bgColor }]} android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={viewBanner}>
-            <Text style={[styles.text, { color: item.textColor }]} ellipsizeMode="tail" numberOfLines={1}>
-                {item.text}
-            </Text>
-            <Text style={styles.time}>
-                {item.savedAt}
-            </Text>
+        <Pressable android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={viewBanner}>
+            <View style={[styles.item, { backgroundColor: item.bgColor }]}>
+                <Text style={[styles.text, { color: item.textColor }]} ellipsizeMode="tail" numberOfLines={1}>
+                    {item.text}
+                </Text>
+                <Text style={styles.time}>
+                    {item.savedAt}
+                </Text>
+            </View>
         </Pressable>
     );
 };
@@ -23,11 +25,10 @@ const styles = StyleSheet.create({
     item: {
         padding: 16,
         borderBottomWidth: 1,
-        borderBottomColor: "rgba(255, 255, 255, 0.1)"
+        borderBottomColor: "rgba(255, 255, 255, 0.1)",
     },
     text: {
         fontSize: 18,
-        color: "white",
     },
     time: {
         color: "gray",
