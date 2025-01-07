@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { ListRenderItem, Pressable, StyleSheet, Text, View } from "react-native";
+import { ListRenderItem, Pressable, StyleSheet, Text } from "react-native";
 
 
 const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
@@ -8,15 +8,13 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
     }
 
     return (
-        <Pressable android_ripple={{ color: "rgba(255, 255, 255, 0.2)" }} onPress={viewBanner}>
-            <View style={[styles.item, { backgroundColor: item.bgColor }]}>
+        <Pressable onPress={viewBanner} style={({pressed}) => [{ opacity: pressed ? 0.7 : 1 }, styles.item]}>
                 <Text style={[styles.text, { color: item.textColor }]} ellipsizeMode="tail" numberOfLines={1}>
                     {item.text}
                 </Text>
                 <Text style={styles.time}>
                     {item.savedAt}
                 </Text>
-            </View>
         </Pressable>
     );
 };
