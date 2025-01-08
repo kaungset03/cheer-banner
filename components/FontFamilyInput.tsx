@@ -1,13 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import FontFamilyList from "@/components/FontFamilyList";
 
-const FontFamilyInput = () => {
+type FontFamilyInputProps = {
+    fontFamily: string;
+    onSelected: (font: string) => void;
+}
+
+const FontFamilyInput = ({ fontFamily, onSelected }: FontFamilyInputProps) => {    
     return (
         <View style={styles.config}>
             <Text style={styles.configTitle}>
                 Font Family:
             </Text>
-            <FontFamilyList />
+            <FontFamilyList selected={fontFamily} onPress={onSelected} />
         </View>
     );
 };

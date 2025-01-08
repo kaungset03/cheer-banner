@@ -57,7 +57,7 @@ const Create = () => {
                 <BannerTextInput typed={textConfig.text} onChange={onTextConfigChange} handlePress={handleSubmit} />
                 <NavigationBar showedConfig={showedConfig} handlePress={onShowedConfigChange} />
                 {showedConfig === "text" ?
-                    <TextConfigs textColor={textConfig.textColor} bgColor={textConfig.bgColor} fontSize={textConfig.fontSize} onUpdateTextConfig={onTextConfigChange} />
+                    <TextConfigs textColor={textConfig.textColor} bgColor={textConfig.bgColor} fontFamily={textConfig.fontFamily} fontSize={textConfig.fontSize} onUpdateTextConfig={onTextConfigChange} />
                     :
                     <AnimationConfigs animationConfig={animationConfig} onUpdateAnimationConfig={onAnimationConfigChange} />}
             </View>

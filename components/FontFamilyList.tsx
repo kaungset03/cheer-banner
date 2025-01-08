@@ -2,18 +2,18 @@ import { FlatList, ListRenderItem, Pressable, StyleSheet, Text, View } from "rea
 import { fontFamilies } from "@/constants/constants";
 
 type FontFamilyListProps = {
-    selected: number,
-    // onPress: (size: number) => void
+    selected: string,
+    onPress: (size: string) => void
 }
 
 
-const FontFamilyList = () => {
+const FontFamilyList = ({ selected, onPress }: FontFamilyListProps) => {
 
     const renderItem: ListRenderItem<any> = ({ item }) => {
-        const isSelected = false;
+        const isSelected = item === selected;        
 
         return (
-            <Pressable>
+            <Pressable onPress={() => onPress(item)}>
                 <View style={[styles.listItem, { borderColor: isSelected ? "white" : "transparent" }]} >
                     <Text style={[styles.listText, { fontFamily: item}]}>
                         Aa

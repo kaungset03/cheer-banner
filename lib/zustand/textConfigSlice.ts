@@ -7,7 +7,7 @@ export interface TextConfigSlice extends TextConfig {
 const createTextConfigSlice: StateCreator<TextConfigSlice> = (set) => ({
   text: "Hello World!",
   fontSize: 32,
-  fontFamily: "Doto",
+  fontFamily: "serif",
   textColor: "#FFFFFF",
   bgColor: "#000000",
   updateTextConfig: (config) => set((state) => ({ ...state, ...config })),
