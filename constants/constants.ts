@@ -26,7 +26,6 @@ const textColors = [
   "#097770",
 ];
 
-
 const bgColors = [
   "#000000", // Black
   "#33FF57", // Lime Green
@@ -74,6 +73,13 @@ const textSizes = [
   },
 ];
 
+const fontFamilies = [
+  "serif",
+  "SpaceMono",
+  "PlaywriteAUSA",
+  "Doto",
+];
+
 const animationTypes = ["none", "right_to_left", "left_to_right", "blink"];
 
-export { textColors, bgColors, textSizes, animationTypes };
+export { textColors, bgColors, textSizes, animationTypes, fontFamilies };

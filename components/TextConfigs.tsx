@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import TextColorInput from "@/components/TextColorInput";
 import BackgroundColorInput from "@/components/BackgroundColorInput";
 import TextSizeInput from "@/components/TextSizeInput";
+import FontFamilyInput from "@/components/FontFamilyInput";
 
 type TextConfigsProps = {
     textColor: string;
@@ -29,6 +30,7 @@ const TextConfigs = ({ textColor, bgColor, fontSize, onUpdateTextConfig }: TextC
             <TextColorInput textColor={textColor} onSelected={updateTextColor} />
             <BackgroundColorInput bgColor={bgColor} onSelected={updateBgColor} />
             <TextSizeInput textSize={fontSize} onSelected={updateFontSize} />
+            <FontFamilyInput />
         </View>
     );
 };
