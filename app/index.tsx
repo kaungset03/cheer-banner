@@ -1,7 +1,8 @@
 import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import BannersList from "@/components/BannersList";
+import PressableOpacity from "@/components/PressableOpacity";
 
 const Index = () => {
   const handlePress = () => {
@@ -12,9 +13,9 @@ const Index = () => {
     <View style={styles.container}>
       <Text style={styles.text}>Welcome</Text>
       <BannersList />
-      <Pressable style={styles.btn} onPress={handlePress}>
+      <PressableOpacity style={styles.btn} onPress={handlePress}>
         <Ionicons name="add" size={35} color="#1e1e1e" />
-      </Pressable>
+      </PressableOpacity>
     </View>
   );
 };

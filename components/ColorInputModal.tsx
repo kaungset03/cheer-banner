@@ -1,5 +1,4 @@
 import { Modal, View, FlatList, Pressable, StyleSheet, ListRenderItem } from 'react-native';
-
 interface ColorInputModalProps {
     showModal: boolean;
     colors: string[]
@@ -22,7 +21,7 @@ const ColorInputModal = ({ showModal,colors, onCancel, onConfirm }: ColorInputMo
             transparent={true}
             visible={showModal}
             onRequestClose={onCancel}>
-            <View style={styles.centeredView}>
+            <View  style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <FlatList
                         horizontal={false}
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.7)',
+        backgroundColor: 'rgba(0,0,0,0.8)',
     },
     modalView: {
         width: "90%",

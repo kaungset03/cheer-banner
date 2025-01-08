@@ -1,4 +1,5 @@
-import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
+import PressableOpacity from "@/components/PressableOpacity";
 
 type ConfirmModalProps = {
     showModal: boolean;
@@ -25,12 +26,12 @@ const ConfirmModal = ({ showModal, onConfirm, onCancel, title, description }: Co
                        {description}
                     </Text>
                     <View style={styles.btnContainer}>
-                        <Pressable style={[styles.button, styles.buttonOpen]} onPress={onCancel}>
+                        <PressableOpacity style={[styles.button, styles.buttonOpen]} onPress={onCancel}>
                             <Text style={styles.btnText}>Cancel</Text>
-                        </Pressable>
-                        <Pressable style={[styles.button, styles.buttonClose]} onPress={onConfirm}>
+                        </PressableOpacity>
+                        <PressableOpacity style={[styles.button, styles.buttonClose]} onPress={onConfirm}>
                             <Text style={styles.btnText}>{title}</Text>
-                        </Pressable>
+                        </PressableOpacity>
                     </View>
                 </View>
             </View>

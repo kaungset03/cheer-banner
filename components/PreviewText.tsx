@@ -13,7 +13,7 @@ const PreviewText = ({ config }: PreviewTextProps) => {
             <Text style={[styles.previewText, { color: textColor, fontSize, fontFamily }]}>
                 {text}
             </Text>
-            <SaveButton typed={text} />
+            <SaveButton />
         </View>
     );
 };

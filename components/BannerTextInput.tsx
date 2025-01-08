@@ -1,5 +1,6 @@
-import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import PressableOpacity from "@/components/PressableOpacity";
 
 type BannerTextInputProps = {
     typed: string;
@@ -21,9 +22,9 @@ const BannerTextInput = ({ typed, onChange, handlePress }: BannerTextInputProps)
                 cursorColor={"white"}
                 placeholderTextColor={"white"}
                 onChangeText={onTextChange} />
-            <Pressable style={styles.btn} onPress={handlePress}>
+            <PressableOpacity style={styles.btn} onPress={handlePress}>
                 <FontAwesome name="send" size={20} color="white" />
-            </Pressable>
+            </PressableOpacity>
         </View>
     );
 };

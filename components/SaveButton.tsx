@@ -1,8 +1,9 @@
-import { Pressable, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import useAppStore from "@/lib/zustand/store";
 import ConfirmModal from "@/components/ConfirmModal";
+import PressableOpacity from "@/components/PressableOpacity";
 
 
 const SaveButton = () => {
@@ -35,9 +36,9 @@ const SaveButton = () => {
 
     return (
         <>
-            <Pressable style={styles.saveBtn} onPress={toggleModal}>
+            <PressableOpacity style={styles.saveBtn} onPress={toggleModal}>
                 <FontAwesome name="bookmark-o" size={20} color="white" />
-            </Pressable>
+            </PressableOpacity>
             <ConfirmModal
                 showModal={showModal}
                 onConfirm={handleSave}
