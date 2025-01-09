@@ -69,7 +69,7 @@ const textSizes = [
   },
   {
     name: "xl",
-    size: 128,
+    size: 80,
   },
 ];
 

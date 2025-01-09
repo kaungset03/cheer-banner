@@ -9,7 +9,7 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
 
     return (
         <Pressable onPress={viewBanner} style={({pressed}) => [{ opacity: pressed ? 0.7 : 1 }, styles.item]}>
-                <Text style={[styles.text, { color: item.textColor }]} ellipsizeMode="tail" numberOfLines={1}>
+                <Text style={[styles.text, { color: item.textColor, fontFamily: item.fontFamily }]} ellipsizeMode="tail" numberOfLines={1}>
                     {item.text}
                 </Text>
                 <Text style={styles.time}>
