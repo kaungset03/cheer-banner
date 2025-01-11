@@ -12,7 +12,7 @@ export interface SavedBannerSlice {
 const createSavedBannerSlice: StateCreator<SavedBannerSlice> = (set) => ({
   banners: [],
   addBanner: (banner) =>
-    set((state) => ({ banners: [...state.banners, banner] })),
+    set((state) => ({ banners: [banner, ...state.banners] })),
   removeBanner: (bannerId) =>
     set((state) => ({
       banners: state.banners.filter((banner) => banner.id !== bannerId),
