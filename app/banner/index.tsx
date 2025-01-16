@@ -34,7 +34,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: bgColor }]}>
       {
         animationType === "none" ? <NormalText text={text as string} textStyles={textStyles} containerStyle={marqueeContainer} />
           :

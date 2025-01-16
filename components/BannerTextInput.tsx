@@ -15,7 +15,7 @@ const BannerTextInput = () => {
     }
 
     const handlePress = () => {
-        router.navigate("/banner");
+        router.push("/banner");
     }
 
 

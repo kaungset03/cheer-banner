@@ -18,10 +18,10 @@ const AnimationTypeInput = () => {
         return (
             <Pressable style={[styles.selectedConfig, { borderColor: isSelected ? "white" : "transparent" }]} onPress={() => handlePress(item)}>
                 <View style={styles.configInput} >
-                    {item === "none" ? <MaterialIcons name="cancel" size={23} color="white" style={{ textAlign: "center" }} /> :
+                    {item === "none" ? <MaterialIcons name="cancel" size={20} color="white" style={{ textAlign: "center" }} /> :
                         <Entypo
                             name={item === "right_to_left" ? "arrow-left" : item === "left_to_right" ? "arrow-right" : "star-outlined"}
-                            size={23} color="white" style={{ textAlign: "center" }} />}
+                            size={20} color="white" style={{ textAlign: "center" }} />}
                 </View>
             </Pressable>
         )
@@ -35,8 +35,8 @@ const AnimationTypeInput = () => {
 export default AnimationTypeInput;
 const styles = StyleSheet.create({
     selectedConfig: {
-        width: 60,
-        height: 60,
+        width: 50,
+        height: 50,
         borderRadius: 5,
         justifyContent: "center",
         alignItems: "center",

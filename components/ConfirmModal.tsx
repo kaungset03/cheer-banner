@@ -82,16 +82,16 @@ const styles = StyleSheet.create({
     btnText: {
         textAlign: 'center',
         color: 'white',
-        fontSize: 16,
+        fontSize: 14,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         marginBottom: 20,
         fontWeight: "semibold",
     },
     modalText: {
         marginBottom: 15,
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 16,
     },
 });

@@ -32,9 +32,4 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "white",
     },
-    selected: {
-        width: 50,
-        height: 50,
-        borderRadius: 5,
-    }
 });

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.8)',
     },
     modalView: {
-        width: "90%",
+        width: "100%",
         maxHeight: 400,
         borderRadius: 15,
         padding: 35,
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     inputItem: {
-        width: 50,
-        height: 50,
+        width: 45,
+        height: 45,
         borderRadius: 5,
     },
 });

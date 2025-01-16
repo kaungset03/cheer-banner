@@ -23,7 +23,7 @@ const Layout = () => {
 
   return (
     <>
-      <Stack screenOptions={{ headerShown: false, animation: "fade_from_bottom", animationDuration: 300 }}>
+      <Stack screenOptions={{ headerShown: false, animation: "fade_from_bottom", animationDuration: 350 }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="create" />
         <Stack.Screen name="banner/index" />

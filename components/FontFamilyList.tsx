@@ -32,8 +32,8 @@ const FontFamilyList = ({ selected, onPress }: FontFamilyListProps) => {
 export default FontFamilyList;
 const styles = StyleSheet.create({
     listItem: {
-        width: 50,
-        height: 50,
+        width: 45,
+        height: 45,
         borderRadius: 5,
         backgroundColor: "black",
         justifyContent: "center",

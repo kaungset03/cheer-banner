@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     configTitle: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "bold",
         color: "white",
     },
     selected: {
-        width: 50,
-        height: 50,
+        width: 45,
+        height: 45,
         borderRadius: 5,
     }
 });
