@@ -1,18 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
 import FontFamilyList from "@/components/FontFamilyList";
+import useAppStore from "../lib/zustand/store";
 
-type FontFamilyInputProps = {
-    fontFamily: string;
-    onSelected: (font: string) => void;
-}
 
-const FontFamilyInput = ({ fontFamily, onSelected }: FontFamilyInputProps) => {    
+const FontFamilyInput = () => {
+    const fontFamily = useAppStore((state) => state.fontFamily);
+    const updateTextConfig = useAppStore((state) => state.updateTextConfig);
+
+    const onPress = (font: string) => {
+        updateTextConfig({ fontFamily: font })
+    }
+
+
     return (
         <View style={styles.config}>
             <Text style={styles.configTitle}>
                 Font Family:
             </Text>
-            <FontFamilyList selected={fontFamily} onPress={onSelected} />
+            <FontFamilyList selected={fontFamily} onPress={onPress} />
         </View>
     );
 };

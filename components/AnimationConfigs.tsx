@@ -1,42 +1,22 @@
-import { Slider } from "@miblanchard/react-native-slider";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import { animationTypes } from "@/constants/constants";
+import { StyleSheet, Text, View } from "react-native";
+import AnimationSpeedInput from "@/components/AnimationSpeedInput";
 import AnimationTypeInput from "@/components/AnimationTypeInput";
 
-type AnimationConfigProps = {
-    animationConfig: AnimationConfig
-    onUpdateAnimationConfig: (key: keyof AnimationConfig, value: any) => void
-};
 
-
-const AnimationConfig = ({ animationConfig, onUpdateAnimationConfig }: AnimationConfigProps) => {
-    const updateSpeed = (value: number) => {
-        onUpdateAnimationConfig("animationSpeed", value);
-    }
-
-    const updateType = (value: string) => {
-        onUpdateAnimationConfig("animationType", value);
-    }
-
-
+const AnimationConfig = () => {
     return (
         <View style={styles.configContainer}>
             <View style={styles.config}>
                 <Text style={styles.configTitle}>
                     Animation Type
                 </Text>
-                <FlatList horizontal data={animationTypes} renderItem={({ item }) => <AnimationTypeInput item={item} selected={animationConfig.animationType} handlePress={updateType} />} />
+                <AnimationTypeInput />
             </View>
             <View style={styles.config}>
                 <Text style={styles.configTitle}>
                     Animation Speed
                 </Text>
-                <Slider
-                    value={animationConfig.animationSpeed}
-                    minimumValue={1}
-                    maximumValue={5}
-                    onValueChange={(value) => updateSpeed(value[0])}
-                />
+                <AnimationSpeedInput />
             </View>
         </View>
     );

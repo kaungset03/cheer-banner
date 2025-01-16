@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { textColors } from "@/constants/constants";
-import ColorInputModal from "@/components/ColorInputModal";
-
-type TextColorInputProps = {
-    textColor: string;
-    onSelected: (color: string) => void;
-}
+import useAppStore from "@/lib/zustand/store";
+import ColorsListModal from "@/components/ColorsListModal";
 
 
-const TextColorInput = ({ textColor, onSelected }: TextColorInputProps) => {
+const TextColorInput = () => {
+    const textColor = useAppStore((state) => state.textColor);
+    const updateTextConfig = useAppStore((state) => state.updateTextConfig);
     const [showModal, setShowModal] = useState(false);
 
     const toggleShowModal = () => {
@@ -17,7 +15,7 @@ const TextColorInput = ({ textColor, onSelected }: TextColorInputProps) => {
     }
 
     const onConfirm = (c: string) => {
-        onSelected(c);
+        updateTextConfig({ textColor })
         toggleShowModal();
 
     }
@@ -31,7 +29,7 @@ const TextColorInput = ({ textColor, onSelected }: TextColorInputProps) => {
             <Pressable onPress={toggleShowModal}>
                 <View style={[styles.selected, { backgroundColor: textColor }]} />
             </Pressable>
-            <ColorInputModal colors={textColors} showModal={showModal} onConfirm={onConfirm} onCancel={toggleShowModal} />
+            <ColorsListModal colors={textColors} showModal={showModal} onConfirm={onConfirm} onCancel={toggleShowModal} />
         </View>
     );
 };

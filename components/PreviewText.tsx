@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import SaveButton from "@/components/SaveButton";
-
-type PreviewTextProps = {
-    config: TextConfig
-}
+import useAppStore from "../lib/zustand/store";
 
 
-const PreviewText = ({ config }: PreviewTextProps) => {
-    const { text, bgColor, textColor, fontFamily, fontSize } = config;
+const PreviewText = () => {
+    const text = useAppStore((state) => state.text);
+    const textColor = useAppStore((state) => state.textColor);
+    const bgColor = useAppStore((state) => state.bgColor);
+    const fontSize = useAppStore((state) => state.fontSize);
+    const fontFamily = useAppStore((state) => state.fontFamily);
+
     return (
         <View style={[styles.textContainer, { backgroundColor: bgColor }]}>
             <Text style={[styles.previewText, { color: textColor, fontSize, fontFamily }]}>

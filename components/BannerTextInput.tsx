@@ -1,24 +1,27 @@
+import { router } from "expo-router";
 import { StyleSheet, TextInput, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PressableOpacity from "@/components/PressableOpacity";
+import useAppStore from "@/lib/zustand/store";
 
-type BannerTextInputProps = {
-    typed: string;
-    onChange: (key: keyof TextConfig, value: any) => void
-    handlePress: () => void
-}
 
-const BannerTextInput = ({ typed, onChange, handlePress }: BannerTextInputProps) => {
-    const onTextChange = (value: string) => {
-        onChange("text", value)
+const BannerTextInput = () => {
+    const text = useAppStore((state) => state.text);
+    const updateTextConfig = useAppStore((state) => state.updateTextConfig);
+
+    const onTextChange = (v: string) => {
+        updateTextConfig({ text: v })
     }
 
+    const handlePress = () => {
+        router.navigate("/banner");
+    }
 
     return (
         <View style={styles.textInputContainer}>
             <TextInput style={styles.textInput}
                 placeholder="Enter Text"
-                value={typed}
+                value={text}
                 cursorColor={"white"}
                 placeholderTextColor={"white"}
                 onChangeText={onTextChange} />

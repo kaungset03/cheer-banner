@@ -5,7 +5,6 @@ import useAppStore from "@/lib/zustand/store";
 import ConfirmModal from "@/components/ConfirmModal";
 import PressableOpacity from "@/components/PressableOpacity";
 
-
 const SaveButton = () => {
     const { text, textColor, fontSize, fontFamily, bgColor, animationType, animationSpeed, addBanner } = useAppStore((state) => state);
 

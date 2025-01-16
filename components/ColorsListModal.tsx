@@ -1,12 +1,12 @@
 import { Modal, View, FlatList, Pressable, StyleSheet, ListRenderItem } from 'react-native';
-interface ColorInputModalProps {
+interface ColorsListModalProps {
     showModal: boolean;
     colors: string[]
     onConfirm: (c: string) => void;
     onCancel: () => void;
 }
 
-const ColorInputModal = ({ showModal,colors, onCancel, onConfirm }: ColorInputModalProps) => {
+const ColorsListModal = ({ showModal, colors, onCancel, onConfirm }: ColorsListModalProps) => {
     const renderColorInput: ListRenderItem<string> = ({ item }) => {
         return (
             <Pressable onPress={() => onConfirm(item)}>
@@ -21,7 +21,7 @@ const ColorInputModal = ({ showModal,colors, onCancel, onConfirm }: ColorInputMo
             transparent={true}
             visible={showModal}
             onRequestClose={onCancel}>
-            <View  style={styles.centeredView}>
+            <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <FlatList
                         horizontal={false}
@@ -38,7 +38,7 @@ const ColorInputModal = ({ showModal,colors, onCancel, onConfirm }: ColorInputMo
     );
 };
 
-export default ColorInputModal;
+export default ColorsListModal;
 
 const styles = StyleSheet.create({
     centeredView: {

@@ -1,19 +1,22 @@
 import { StyleSheet, Text, View } from "react-native";
 import TextSizesList from "@/components/TextSizesList";
+import useAppStore from "@/lib/zustand/store";
 
-type TextSizeInputProps = {
-    textSize: number;
-    onSelected: (size: number) => void;
-}
+const TextSizeInput = () => {
+    const fontSize = useAppStore((state) => state.fontSize);
+    const updateTextConfig = useAppStore((state) => state.updateTextConfig);
+
+    const onPress = (size: number) => {
+        updateTextConfig({ fontSize: size })
+    }
 
 
-const TextSizeInput = ({ textSize, onSelected }: TextSizeInputProps) => {
     return (
         <View style={styles.config}>
             <Text style={styles.configTitle}>
                 Text Size:
             </Text>
-            <TextSizesList selected={textSize} onPress={onSelected} />
+            <TextSizesList selected={fontSize} onPress={onPress} />
         </View>
     );
 };
