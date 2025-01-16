@@ -8,7 +8,7 @@ const createTextConfigSlice: StateCreator<TextConfigSlice> = (set) => ({
   text: "Hello World!",
   fontSize: 32,
   fontFamily: "serif",
-  textColor: "#FFFFFF",
+  textColor: "#ffffff",
   bgColor: "#000000",
   updateTextConfig: (config) => set((state) => ({ ...state, ...config })),
 });

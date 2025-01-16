@@ -6,6 +6,7 @@ import useAppStore from "@/lib/zustand/store";
 
 
 const BannerTextInput = () => {
+
     const text = useAppStore((state) => state.text);
     const updateTextConfig = useAppStore((state) => state.updateTextConfig);
 
@@ -17,10 +18,13 @@ const BannerTextInput = () => {
         router.navigate("/banner");
     }
 
+
+
     return (
         <View style={styles.textInputContainer}>
             <TextInput style={styles.textInput}
                 placeholder="Enter Text"
+                autoFocus
                 value={text}
                 cursorColor={"white"}
                 placeholderTextColor={"white"}

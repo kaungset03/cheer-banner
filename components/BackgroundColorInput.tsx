@@ -14,7 +14,7 @@ const BackgroundColorInput = () => {
     }
 
     const onConfirm = (c: string) => {
-        updateTextConfig({ bgColor })
+        updateTextConfig({ bgColor: c })
         toggleShowModal();
     }
 

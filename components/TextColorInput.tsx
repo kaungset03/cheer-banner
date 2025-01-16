@@ -15,7 +15,7 @@ const TextColorInput = () => {
     }
 
     const onConfirm = (c: string) => {
-        updateTextConfig({ textColor })
+        updateTextConfig({ textColor: c })
         toggleShowModal();
 
     }
