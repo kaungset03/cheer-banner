@@ -1,57 +1,57 @@
 const textColors = [
-  "#ffffff",
-  "#e52165",
-  "#0d1137",
-  "#d72631",
-  "#a2d5c6",
-  "#077b8a",
-  "#5c3c92",
-  "#e2d810",
-  "#d9138a",
-  "#12a4d9",
-  "#322e2f",
-  "#f3ca20",
-  "#000000",
-  "#cf1578",
-  "#e8d21d",
-  "#039fbe",
-  "#b20238",
-  "#316879",
-  "#7fe7dc",
-  "#ced7d8",
-  "#ffcce7",
-  "#daf2dc",
-  "#81b7d2",
-  "#4d5198",
-  "#097770",
+  "#FFFFFF", // White
+  "#1C1C1C", // Matte Black
+  "#7DF9FF", // Electric Blue
+  "#39FF14", // Neon Green
+  "#FF4500", // Sunset Orange
+  "#DA70D6", // Purple Orchid
+  "#FFD700", // Bright Yellow
+  "#00FFFF", // Cyan Blue
+  "#FF69B4", // Hot Pink
+  "#32CD32", // Lime Green
+  "#B22222", // Deep Red
+  "#4169E1", // Royal Blue
+  "#FF1493", // Deep Pink
+  "#9400D3", // Dark Violet
+  "#FF6347", // Tomato Red
+  "#8A2BE2", // Blue Violet
+  "#FF8C00", // Dark Orange
+  "#FF7F50", // Coral Pink
+  "#40E0D0", // Turquoise Blue
+  "#F08080", // Light Coral
+  "#20B2AA", // Light Sea Green
+  "#778899", // Light Slate Gray
+  "#FFFFE0", // Light Yellow
+  "#DC143C", // Crimson Red
+  "#ADD8E6", // Light Blue
 ];
 
 const bgColors = [
-  "#000000", // Black
-  "#33FF57", // Lime Green
-  "#3357FF", // Blue
-  "#F1C40F", // Yellow
-  "#9B59B6", // Purple
-  "#1ABC9C", // Turquoise
-  "#34495E", // Dark Gray
-  "#E74C3C", // Red
-  "#2ECC71", // Green
-  "#3498DB", // Blue
-  "#9B59B6", // Purple
-  "#F39C12", // Orange
-  "#E67E22", // Carrot
-  "#16A085", // Sea Green
-  "#2980B9", // Bright Blue
-  "#8E44AD", // Violet
-  "#27AE60", // Emerald Green
-  "#D35400", // Dark Orange
-  "#C0392B", // Strong Red
-  "#BDC3C7", // Silver
-  "#7F8C8D", // Concrete Gray
-  "#F4D03F", // Golden Yellow
-  "#5D6D7E", // Slate Blue
-  "#AAB7B8", // Light Gray
-  "#F5B7B1", // Light Red
+  "#000000",
+  "#D3D3D3", // Soft Gray
+  "#001F3F", // Dark Navy
+  "#008080", // Bright Teal
+  "#B39DDB", // Pastel Purple
+  "#FFC107", // Sunflower Yellow
+  "#50C878", // Emerald Green
+  "#FF2400", // Scarlet Red
+  "#FF7F50", // Coral Pink
+  "#40E0D0", // Turquoise Blue
+  "#F5F5DC", // Beige
+  "#2E8B57", // Sea Green
+  "#F4A460", // Sandy Brown
+  "#4682B4", // Steel Blue
+  "#FFB6C1", // Light Pink
+  "#A52A2A", // Brown
+  "#FFDAB9", // Peach Puff
+  "#98FB98", // Pale Green
+  "#8B0000", // Dark Red
+  "#6495ED", // Cornflower Blue
+  "#EEE8AA", // Pale Goldenrod
+  "#6A5ACD", // Slate Blue
+  "#7FFFD4", // Aquamarine
+  "#FAEBD7", // Antique White
+  "#D2691E", // Chocolate
 ];
 
 const textSizes = [
@@ -73,12 +73,7 @@ const textSizes = [
   },
 ];
 
-const fontFamilies = [
-  "serif",
-  "SpaceMono",
-  "PlaywriteAUSA",
-  "Doto",
-];
+const fontFamilies = ["serif", "SpaceMono", "PlaywriteAUSA", "Doto"];
 
 const animationTypes = ["none", "right_to_left", "left_to_right", "blink"];
 

@@ -21,7 +21,7 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
                 <Text style={[styles.text, { color: item.textColor, fontFamily: item.fontFamily }]} ellipsizeMode="tail" numberOfLines={1}>
                     {item.text}
                 </Text>
-                <Text style={styles.time}>
+                <Text style={[styles.time, { color: item.textColor }]}>
                     {formattedDate}
                 </Text>
         </Pressable>

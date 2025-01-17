@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         rowGap: 15,
     },
     configTitle: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "bold",
         color: "white",
     },

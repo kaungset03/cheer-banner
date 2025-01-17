@@ -6,7 +6,7 @@ import PressableOpacity from "@/components/PressableOpacity";
 
 const Index = () => {
   const handlePress = () => {
-    router.push({ pathname: "/create" });
+    router.navigate("/create")
   }
 
   return (

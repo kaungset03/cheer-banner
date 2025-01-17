@@ -22,7 +22,7 @@ const BackgroundColorInput = () => {
     return (
         <View style={styles.config}>
             <Text style={styles.configTitle}>
-                Text Color:
+                Background Color: 
             </Text>
             <Pressable onPress={toggleShowModal}>
                 <View style={[styles.selected, { backgroundColor: bgColor }]} />
