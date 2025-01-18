@@ -9,7 +9,7 @@ interface PressableOpacityProps {
 
 const PressableOpacity = ({ children, style, onPress }: PressableOpacityProps) => {
     return (
-        <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }, style]}>
+        <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.8 : 1 }, style]}>
             {children}
         </Pressable>
     );

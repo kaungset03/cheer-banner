@@ -17,13 +17,17 @@ const BannerItem: ListRenderItem<SavedBanner> = ({ item }) => {
     });
 
     return (
-        <Pressable onPress={viewBanner} style={({pressed}) => [{ opacity: pressed ? 0.7 : 1, backgroundColor: item.bgColor }, styles.item]}>
-                <Text style={[styles.text, { color: item.textColor, fontFamily: item.fontFamily }]} ellipsizeMode="tail" numberOfLines={1}>
-                    {item.text}
-                </Text>
-                <Text style={[styles.time, { color: item.textColor }]}>
-                    {formattedDate}
-                </Text>
+        <Pressable onPress={viewBanner} style={[{ backgroundColor: item.bgColor }, styles.item]}>
+            {({ pressed }) => (
+                <>
+                    <Text style={[styles.text, { color: item.textColor, fontFamily: item.fontFamily, opacity: pressed ? 0.5 : 1 }]} ellipsizeMode="tail" numberOfLines={1}>
+                        {item.text}
+                    </Text>
+                    <Text style={[styles.time, { color: item.textColor, opacity: pressed ? 0.5 : 1 }]}>
+                        {formattedDate}
+                    </Text>
+                </>
+            )}
         </Pressable>
     );
 };
